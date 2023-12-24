@@ -1,0 +1,11 @@
+{
+  "name": "ci-cd-implementation",
+  "version": "1.0.0",
+  "description": "tugas",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
