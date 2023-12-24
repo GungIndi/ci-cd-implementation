@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": " https://github.com/GungIndi/ci-cd-implementation"
+  },
+  "author": "GungIndi",
   "license": "ISC"
 }
