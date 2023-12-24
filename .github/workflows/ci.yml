@@ -20,5 +20,5 @@ jobs:
         
     - name: Install Dependencies and Run Node
       run: |
-        npm i
+        npm install
         npm start
