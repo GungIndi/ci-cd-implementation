@@ -35,14 +35,13 @@ jobs:
       with:
         context: .
         push: true
-        tags: gungindi/ci-cd-implementation:terbaru
+        tags: gungindi/ci-cd-implementation:latest
   
   deploy:
-    name: Connect SSH
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: executing remote ssh commands using password
+    - name: login SSH and pull from docker hub
       uses: appleboy/ssh-action@v1.0.1
       with:
         host: ${{ secrets.HOST }}
@@ -52,6 +51,9 @@ jobs:
         script: |
           cd /home/bayskie/ci-cd-implementation
           git pull origin main
+          docker compose -f docker-compose.yml pull
+          docker compose -f docker-compose.yml down
           docker compose -f docker-compose.yml up
+          docker image prune -f
       
 
