@@ -37,7 +37,7 @@ jobs:
         push: true
         tags: gungindi/ci-cd-implementation:terbaru
   
-  Deploy:
+  deploy:
     name: Connect SSH
     needs: build
     runs-on: ubuntu-latest
@@ -52,6 +52,6 @@ jobs:
         script: |
           cd /home/bayskie/ci-cd-implementation
           git pull origin main
-          echo "bayskie" | sudo -S -k docker compose -f docker-compose.yml up
+          docker compose -f docker-compose.yml up
       
 
