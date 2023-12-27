@@ -37,7 +37,7 @@ jobs:
         push: true
         tags: gungindi/ci-cd-implementation:latest
         
-    - name: login SSH and pull from docker hub
+    - name: login ssh and deploy
       uses: appleboy/ssh-action@v1.0.1
       with:
         host: ${{ secrets.HOST }}
@@ -47,10 +47,8 @@ jobs:
         script: |
           cd /home/bayskie/ci-cd-implementation
           git pull origin main
-          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker rmi ci-cd-implementation:latest --force
-          docker compose -f docker-compose.yml pull
           docker compose -f docker-compose.yml down
+          docker rmi ci-cd-implementation:latest --force
           docker compose -f docker-compose.yml up -d
       
 
