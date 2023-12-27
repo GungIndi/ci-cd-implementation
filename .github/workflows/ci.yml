@@ -38,11 +38,11 @@ jobs:
         tags: gungindi/ci-cd-implementation:terbaru
   
   Deploy:
-    name: Connect SSH
+    name: Connect SSh
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@v1.0.0
+      uses: appleboy/ssh-action@v1.0.1
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
@@ -50,7 +50,7 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
           whoami
-          ls -al
+          ls -la
           
 
 
