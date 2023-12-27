@@ -38,7 +38,8 @@ jobs:
         tags: gungindi/ci-cd-implementation:terbaru
   
   Deploy:
-    name: Connect SSh
+    name: Connect SSH
+    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using password
@@ -51,6 +52,6 @@ jobs:
         script: |
           cd /home/bayskie/ci-cd-implementation
           git pull origin main
-          echo ${{ secrets.PASSWORD }} | sudo -S -k docker compose -f docker-compose.yml up
+          echo "bayskie" | sudo -S -k docker compose -f docker-compose.yml up
       
 
