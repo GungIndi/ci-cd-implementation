@@ -36,7 +36,7 @@ jobs:
         context: .
         push: true
         tags: gungindi/ci-cd-implementation:latest
-
+        
     - name: login SSH and pull from docker hub
       uses: appleboy/ssh-action@v1.0.1
       with:
@@ -47,6 +47,7 @@ jobs:
         script: |
           cd /home/bayskie/ci-cd-implementation
           git pull origin main
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker compose -f docker-compose.yml pull
           docker compose -f docker-compose.yml down
           docker compose -f docker-compose.yml up -d
