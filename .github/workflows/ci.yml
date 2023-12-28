@@ -48,7 +48,6 @@ jobs:
           cd /home/bayskie/ci-cd-implementation
           git pull origin main
           docker compose -f docker-compose.yml down
-          # docker rmi gungindi/ci-cd-implementation:latest --force
           docker pull gungindi/ci-cd-implementation
           docker compose -f docker-compose.yml up -d
       
