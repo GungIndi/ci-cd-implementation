@@ -1,8 +1,8 @@
+---
 name: super-linter
-
 on:
   push:
-    branches: [ "superlinter-practice" ]
+    branches: ["superlinter-practice"]
 
 jobs:
   super-lint:
@@ -17,4 +17,4 @@ jobs:
       env:
         DEFAULT_BRANCH: superlinter-practice
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-
+...
